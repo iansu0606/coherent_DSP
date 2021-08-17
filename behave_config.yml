@@ -1,0 +1,55 @@
+Behave_Sim:
+  folder: '/Users/suanyu/Documents/DSP/coherent/exp/QPSK_TEST1'
+  symbolRate: 28.125e9
+  pamorder: 2
+  is_simulation: False
+Log:
+  logfile: './log.xlsx'
+Param:
+  output_folder: './output'
+  isplot: 1
+  iswrite: 0
+  radii: 2
+  xpart: 1
+  ypart: 1
+  eyestart: 0
+  eyeend: 16
+  eyescan: 1
+  tap1_start: 9
+  tap1_end: 15
+  tap1_scan: 2
+  tap2_start: 15
+  tap2_end: 17
+  tap2_scan: 2
+  cma_stage:  1
+  cma_iter: [ 15, 30 ]
+  isrealvolterra: 0
+  iscomplexvolterra: 0
+  window_length: 7000
+  correlation_length: 55000
+  CMAstage1_tap: 0
+  CMAstage1_stepsize_x: 0
+  CMAstage1_iteration: 0
+  CMAstage2_tap: 0
+  CMAstage2_stepsize_x: 0
+  CMAstage2_iteration: 0
+  CMA_cost_X1: 0
+  CMA_cost_X2: 0
+  CMA_cost_Y1: 0
+  CMA_cost_Y2: 0
+  XIshift: 0
+  XQshift: 0
+  XI_corr: 0
+  XQ_corr: 0
+  SNR_X: 0
+  EVM_X: 0
+  bercount_X: 0
+  YIshift: 0
+  YQshift: 0
+  YI_corr: 0
+  YQ_corr: 0
+  SNR_Y: 0
+  EVM_Y: 0
+  bercount_Y: 0
+  r1: 2.1
+  r2: 3.8
