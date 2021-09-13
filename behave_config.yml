@@ -1,8 +1,10 @@
 Behave_Sim:
-  folder: '/Users/suanyu/Documents/DSP/coherent/exp/QPSK_TEST1'
-  symbolRate: 28.125e9
-  pamorder: 2
+  folder: '../experiment_data/QAM16_53GBaud_simulation/twenty_km/'
+  symbol_rate: 56e9
+  sample_times: 32
+  pamorder: 4
   is_simulation: False
+
 Log:
   logfile: './log.xlsx'
 Param:
