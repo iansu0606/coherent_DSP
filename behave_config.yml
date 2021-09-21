@@ -7,6 +7,18 @@ Behave_Sim:
 
 Log:
   logfile: './log.xlsx'
+Eye:
+  file:
+  sample_per_symbol: 32
+  is_pam4: 0
+  is_mat: 1
+  is_fig: 1
+  is_video: 0
+  is_keysight: 1
+
+
+
+
 Param:
   output_folder: './output'
   isplot: 1
