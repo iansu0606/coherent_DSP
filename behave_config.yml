@@ -8,7 +8,7 @@ Behave_Sim:
 Log:
   logfile: './log.xlsx'
 Eye:
-  file:
+  file: '../experiment data/26GBd_QPSK_PN15_600mV.mat'
   sample_per_symbol: 32
   is_pam4: 0
   is_mat: 1

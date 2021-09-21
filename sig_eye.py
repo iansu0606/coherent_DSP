@@ -206,17 +206,25 @@ def correlation_extract(referenced_signal, input_signal):
 def progressing(file, sample_per_symbol, is_mat, is_fig, is_video, is_pam4):
     data = data_extract(file)
     if is_mat:
+        if is_keysight:
         # Rx_side
-        data_XI = np.reshape(data["Vblock"]["Values"][0][0][0],-1)
-        # -1 refers to flatten it to 1-D array
-        data_XQ = np.reshape(data["Vblock"]["Values"][0][1][0],-1)
-        data_YI = np.reshape(data["Vblock"]["Values"][0][2][0],-1)
-        data_YQ = np.reshape(data["Vblock"]["Values"][0][3][0],-1)
-        # (Pseudo_Tx-->refer)
-        refer_XI = np.reshape(data["zXSym"]["SeqRe"][0][0][:],-1)
-        refer_XQ = np.reshape(data["zXSym"]["SeqIm"][0][0][:],-1)
-        refer_YI = np.reshape(data["zYSym"]["SeqRe"][0][0][:],-1)
-        refer_YQ = np.reshape(data["zYSym"]["SeqIm"][0][0][:],-1)
+            data_XI = np.reshape(data["Y1"]["Values"][0][0][0],-1)
+            # -1 refers to flatten it to 1-D array
+            data_XQ = np.reshape(data["Y1"]["Values"][0][1][0],-1)
+            data_YI = np.reshape(data["Y2"]["Values"][0][2][0],-1)
+            data_YQ = np.reshape(data["Y2"]["Values"][0][3][0],-1)
+
+        else:
+            # (Pseudo_Tx-->refer)
+            data_XI = np.reshape(data["Vblock"]["Values"][0][0][0], -1)
+            # -1 refers to flatten it to 1-D array
+            data_XQ = np.reshape(data["Vblock"]["Values"][0][1][0], -1)
+            data_YI = np.reshape(data["Vblock"]["Values"][0][2][0], -1)
+            data_YQ = np.reshape(data["Vblock"]["Values"][0][3][0], -1)
+            refer_XI = np.reshape(data["zXSym"]["SeqRe"][0][0][:],-1)
+            refer_XQ = np.reshape(data["zXSym"]["SeqIm"][0][0][:],-1)
+            refer_YI = np.reshape(data["zYSym"]["SeqRe"][0][0][:],-1)
+            refer_YQ = np.reshape(data["zYSym"]["SeqIm"][0][0][:],-1)
         #Go to the resample part
         sig = sample_more(data_XI, sample_per_symbol)
     else:
