@@ -1,10 +1,26 @@
 Behave_Sim:
-  folder: '../experiment_data/QAM16_53GBaud_simulation/twenty_km/'
-  symbol_rate: 56e9
-  sample_times: 32
-  pamorder: 4
+  folder: '../experiment_data/80km/'
   is_simulation: False
-
+  output: 'simu_80km_image'
+  parameter:
+    symbol_rate: 56
+    sample_times: 32
+    pamorder: 4
+    data_file: '../experiment_data/80km/'
+  parameter_exp:
+    sample_times: 1
+    symbol_rate: 28.125
+    sample_rate: 100
+    upsample: 9
+    downsample: 16
+    pamorder: 4
+    PRBSN: 15
+    data_file: '../experiment_data/20210911_B2B_28GBd/16QAM_XIXQ1.mat'
+  eye:
+    start: 0
+    end: 16
+    cma_tap_start: 21
+    cma_tap_end: 23
 Log:
   logfile: './log.xlsx'
 Eye:
@@ -15,9 +31,6 @@ Eye:
   is_fig: 1
   is_video: 0
   is_keysight: 1
-
-
-
 
 Param:
   output_folder: './output'
