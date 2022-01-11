@@ -50,7 +50,7 @@ class CD_compensator:
         w = 2 * math.pi * (1 / T)  # angular freq
         wn = 2 * math.pi * (1 / T / 2)
         wavelength = 1553  # nm
-        D = 16e-12  # s / nm /km
+        D = 18e-12  # s / nm /km
         N = 2 * np.ceil(np.sqrt((math.pi ** 2) * (c ** 2) * (T ** 4) + 4 * (wavelength ** 4) * (D ** 2) * (self.KM ** 2)) / math.pi / c / (T ** 2)) + 2
         N = int(N + N % 2)
         print("FFT_CD_tap_needed : {}".format(N))

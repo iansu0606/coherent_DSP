@@ -1,82 +1,99 @@
-Behave_Sim:
-  folder: '../experiment_data/80km/'
-  is_simulation: False
-  output: 'simu_80km_image'
-  parameter:
-    symbol_rate: 56
-    sample_times: 32
-    pamorder: 4
-    data_file: '../experiment_data/80km/'
-  parameter_exp:
-    sample_times: 1
-    symbol_rate: 28.125
-    sample_rate: 100
-    upsample: 9
-    downsample: 16
-    pamorder: 4
-    PRBSN: 15
-    data_file: '../experiment_data/20210911_B2B_28GBd/16QAM_XIXQ1.mat'
-  eye:
-    start: 0
-    end: 16
-    cma_tap_start: 21
-    cma_tap_end: 23
-Log:
-  logfile: './log.xlsx'
-Eye:
-  file: '../experiment data/26GBd_QPSK_PN15_600mV.mat'
-  sample_per_symbol: 32
-  is_pam4: 0
-  is_mat: 1
-  is_fig: 1
-  is_video: 0
-  is_keysight: 1
+is_simulation: 0        # Simulation mode
+Setting:
+  three_stage: 0         # 64QAM mode
+  is_simulation: 0        # Simulation mode
+  is_keysight: 1          # Keysight mode
+  keysight_upsample: 425  # approx any integer
+  keysight_upsample_high: 425  # 56GBd mode
+  is_tektronic: 0         # Tektronic mode
+  is_volterra: 1          # Volterra for kerr effect
+  high_rate: 1            # 56GBd mode
+  is_QPSK: 0              # For QPSK: 1, 16QAM: 0
+  is_RDE: 0               # radius directed Constant modulus algorithm
+  two_stage: 1            # First CMA and then RDE
+  detail_scan: 1          # Two stage CMA scan only
+  is_continue: 1          # denoise of the frequency offset and do Correlation
+  is_EB2B: 0              # Activate no dsp processing mode
+  downsample_rate: 16   # decision scan point
+  first_stage_downsample: 92  # 26GBd mode
+  first_stage_downsample_high: 46 # 56GBd mode
+  start: 8              # Scan for decision point start
+  end: 9              # Scan for decision point tail
+  decision_spacing: 1     # Scan for decision point spacing
+  longkm: 1               # Activate Chromatic compensation mode
+  transport_length: 80    # transmission length
+  data_length: 220000      # how much data bits
+  record_file: '../Graduate_OB2B_ROP_neg10_400GBD_QAM_op.xlsx' # Record the demodulated result
+  cur_dir: '../image_Graduate_OB2B_ROP_neg10_400GBD_QAM_train'    # where to save the demodulated file
+  proc_folder: '20211124_400G/80km/highrate/LoP_8_RoP_neg10/'  # which folder save the exp data
+  proc_file: 'finisar_56GBd_qam_PN15_600mV.mat' # which exp data file
+  Is_pre_volterra: 0 #saving the temp file for volterra tuning
+  ctap_far: [13, 15, 5, 7]                       # cma_tap for long transmission
+  ctap_B2B: [13, 15, 5, 7] # cma_tap for optical back to back
+  volterra_tap: [31, 31, 31]
+  volterra_order: 3      # Volterra Filter Order
+  cma_batch_size: 150000    # cma batch size for training
+  cma_iteration: 20        # cma iteration number
+  Nfft: 2048               # chromatic dispersion fft number
+  NOverlap: 1024             # chromatic dispersion block overlap
+  viterbi_tap: 400           # viterbi tap number
+  saving_temp: 0
+  viterbi_tap_QPSK: 101    # viterbi tap number for QPSK
+  inner_radius: 2.3    #Partition Radius Innter
+  outer_radius: 4.0   #Partition Radius Outer
 
-Param:
-  output_folder: './output'
-  isplot: 1
-  iswrite: 0
-  radii: 2
-  xpart: 1
-  ypart: 1
-  eyestart: 0
-  eyeend: 16
-  eyescan: 1
-  tap1_start: 9
-  tap1_end: 15
-  tap1_scan: 2
-  tap2_start: 15
-  tap2_end: 17
-  tap2_scan: 2
-  cma_stage:  1
-  cma_iter: [ 15, 30 ]
-  isrealvolterra: 0
-  iscomplexvolterra: 0
-  window_length: 7000
-  correlation_length: 55000
-  CMAstage1_tap: 0
-  CMAstage1_stepsize_x: 0
-  CMAstage1_iteration: 0
-  CMAstage2_tap: 0
-  CMAstage2_stepsize_x: 0
-  CMAstage2_iteration: 0
-  CMA_cost_X1: 0
-  CMA_cost_X2: 0
-  CMA_cost_Y1: 0
-  CMA_cost_Y2: 0
-  XIshift: 0
-  XQshift: 0
-  XI_corr: 0
-  XQ_corr: 0
-  SNR_X: 0
-  EVM_X: 0
-  bercount_X: 0
-  YIshift: 0
-  YQshift: 0
-  YI_corr: 0
-  YQ_corr: 0
-  SNR_Y: 0
-  EVM_Y: 0
-  bercount_Y: 0
-  r1: 2.1
-  r2: 3.8
+
+Simulationset:
+  symbolpersample: 32
+  symbolRate: 120e9       # symbol rate
+  is_simulation: 1        # Simulation mode
+  is_keysight: 0          # Keysight mode
+  keysight_upsample: 425   # approx any integer
+  is_tektronic: 0         # Tektronic mode
+  is_volterra: 1          # Volterra for kerr effect
+  high_rate: 0            # 56GBd mode
+  is_QPSK: 0              # For QPSK: 1, 16QAM: 0
+  is_RDE: 0               # radius directed Constant modulus algorithm
+  two_stage: 1            # First CMA and then RDE
+  detail_scan: 1          # Two stage CMA scan only
+  is_continue: 1          # denoise of the frequency offset and do Correlation
+  is_EB2B: 0              # Activate no dsp processing mode
+  downsample_rate: 1     # decision scan point
+  first_stage_downsample: 1 # 26GBd mode
+  first_stage_downsample_high: 1 # 56GBd mode
+  start: 0          # Scan for decision point start
+  end: 1             # Scan for decision point tail
+  decision_spacing:  1    # Scan for decision point spacing
+  longkm:  0              # Activate Chromatic compensation mode
+  transport_length: 10     # transmission length
+  data_length: 220000      # how much data bits
+  record_file: '../simul_16QAM_dualarm_10km_wo_bW_wn_Oband_OSNR36.xlsx' # Record the demodulated result
+  cur_dir: '../image_simul_16QAM_dualarm_10km_wo_bW_wn_Oband_OSNR36'    # where to save the demodulated file
+  proc_folder: '800GbE_16QAM_dualarm_10km_wo_bW_wn_Oband_OSNR36/'       # which folder save the exp data
+  proc_file: 'could_ignore'                                            # which exp data file
+  ctap_far: [25, 27, 11, 13]                                           # cma_tap for long transmission
+  ctap_B2B: [25, 27, 5, 7]                                        # cma_tap for optical back to back
+  volterra_tap: [31, 31, 31]
+  volterra_order: 3      # Volterra Filter Order
+  cma_batch_size: 150000    # cma batch size for training
+  cma_iteration: 20        # cma iteration number
+  Nfft: 4096               # chromatic dispersion fft number
+  NOverlap: 66             # chromatic dispersion block overlap
+  viterbi_tap: 400         # viterbi tap number
+  viterbi_tap_QPSK: 101    # viterbi tap number for QPSK
+  inner_radius: 2.3    #Partition Radius Innter
+  outer_radius: 4.0   #Partition Radius Outer
+  keysight_upsample_high: 82  # 56GBd mode
+  exp_line: 0
+  phase_temp_file_x: 'test_phase_x.txt'
+  phase_temp_file_y: 'test_phase_y.txt'
+  constellation_tap: 5
+  volttera_tap_1: 7
+  volttera_tap_2: 21
+  volttera_tap_3: 41
+  maximum_likelihood_tap: 70
+  is_phase_voltera: 1
+  is_phase_search: 0
+  saving_temp: 0
+  temp_file_x: './debug_data/cor_data_x.txt'
+  temp_file_y: './debug_data/cor_data_y.txt'

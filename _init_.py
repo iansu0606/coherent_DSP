@@ -21,10 +21,12 @@ from subfunction.BER import *
 from subfunction.ParaRecord import *
 from subfunction.PRBS2bit import *
 from subfunction.RollingWindows import *
-from NNmodel.conv1dResnetModel import *
-from NNmodel.RBFModel import *
-from torch.utils import data as Data
-from PCPEBPS import *
+from KENG_downsample import *
+from KENG_16QAM_LogicTx import *
+# from NNmodel.conv1dResnetModel import *
+# from NNmodel.RBFModel import *
+# from torch.utils import data as Data
+# from PCPEBPS import *
 from CD_compensator import *
 from pathlib import Path
 # from Symbol_synchronizer import *
